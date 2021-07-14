@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gestor-calificaciones-app';
+  opened = false;
+
+  toggleSidebar(){ //https://www.npmjs.com/package/ng-sidebar
+    this.opened = !this.opened;
+  }
 }
