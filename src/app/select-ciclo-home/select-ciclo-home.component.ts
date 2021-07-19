@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ciclo } from '../models/ciclo.model';
+import { CicloService } from '../services/ciclo.service';
 
 @Component({
   selector: 'app-select-ciclo-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectCicloHomeComponent implements OnInit {
 
-  constructor() { }
+  ciclos: Ciclo[] = [];
+
+  constructor(public cicloService: CicloService) { }
 
   ngOnInit(): void {
+    this.cicloService.getAll()
+      .subscribe(ciclos=> {this.ciclos = ciclos});
   }
-
 }

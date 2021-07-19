@@ -1,1 +1,8 @@
-<p>select-ciclo-home works!</p>
+<mat-form-field appearance="fill">
+    <mat-label>Ciclos</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let cicloItem of ciclos" [value]="cicloItem.idCiclo">
+        {{cicloItem.periodo}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
