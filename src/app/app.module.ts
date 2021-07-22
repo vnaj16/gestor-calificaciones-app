@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"; 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SelectCursoHomeComponent } from './select-curso-home/select-curso-home.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SelectCicloHomeComponent,
     HomeComponent,
     PageRegisterGradeComponent,
-    PageRegisterCycleComponent
+    PageRegisterCycleComponent,
+    SelectCursoHomeComponent
   ],
   imports: [
     BrowserModule,

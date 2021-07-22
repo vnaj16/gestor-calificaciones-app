@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+    <mat-label>Curso</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let cursoItem of cursos" [value]="cursoItem.idCurso">
+        {{cursoItem.codigo}} {{cursoItem.nombre}} 
+      </mat-option>
+    </mat-select>
+</mat-form-field>
+
