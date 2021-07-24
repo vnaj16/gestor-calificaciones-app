@@ -10,6 +10,7 @@ import { SelectCicloHomeComponent } from '../select-ciclo-home/select-ciclo-home
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  idCicloSelected:any
 
   constructor() { }
 
@@ -17,4 +18,8 @@ export class HomeComponent implements OnInit {
 
   }
 
+  cicloSelectionChangeMethod(selection: any): void{
+    this.idCicloSelected = selection.value
+    console.log('In Home component', selection)
+  }
 }

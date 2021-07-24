@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SelectCursoHomeComponent } from './select-curso-home/select-curso-home.component';
+import { InfoCicloHomeComponent } from './info-ciclo-home/info-ciclo-home.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SelectCursoHomeComponent } from './select-curso-home/select-curso-home.
     HomeComponent,
     PageRegisterGradeComponent,
     PageRegisterCycleComponent,
-    SelectCursoHomeComponent
+    SelectCursoHomeComponent,
+    InfoCicloHomeComponent
   ],
   imports: [
     BrowserModule,

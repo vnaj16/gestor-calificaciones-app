@@ -1,12 +1,8 @@
+<h1 class="text-primary">Seleccionar Ciclo</h1>
 <mat-form-field appearance="fill">
-    <mat-label>Ciclos</mat-label>
-    <mat-select>
+    <mat-select (selectionChange)="cicloSelectionChangeMethod($event)" [value]="indexLastCiclo">
       <mat-option *ngFor="let cicloItem of ciclos" [value]="cicloItem.idCiclo">
         {{cicloItem.periodo}}
       </mat-option>
     </mat-select>
 </mat-form-field>
-
-<h3>Ciclo by Id: {{ciclo.periodo}} - Promedio {{ciclo.promedioFinal}}</h3>
-<h4>Response post: {{responsePost}}</h4>
-<button (click)="PostCiclo()">Post</button>

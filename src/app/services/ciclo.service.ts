@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Ciclo } from '../models/ciclo.model';
 import {CicloInfo} from '../models/cicloInfo.model';
 import {CreateCiclo} from '../models/createCiclo.model';
+import { Curso } from '../models/curso.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +26,13 @@ export class CicloService {
   getById(idCiclo: number){
     return this.http.get<CicloInfo>(this.baseUrl + 'ciclos/'+idCiclo);
   }
+  getCursosByCiclo(idCiclo: number){
+    return this.http.get<Curso[]>(this.baseUrl + 'ciclos/'+idCiclo+'/cursos')
+  }
   create(ciclo: CreateCiclo){
     return this.http
       .post<CreateCiclo>(this.baseUrl + 'ciclos', JSON.stringify(ciclo), this.httpHeader)
-  }
+  } //https://www.remotestack.io/angular-httpclient-service-example-tutorial/
 
   httpError(error: any) {
     let msg = '';

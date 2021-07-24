@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h1 class="text-primary">Select Ciclo</h1>.
-      <app-select-ciclo-home></app-select-ciclo-home>
+      <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
     </div>
     <div class="col-6">
-      <h1>Select Curso</h1>
-      <app-select-curso-home></app-select-curso-home>
+      <app-select-curso-home [idCicloSelected]="idCicloSelected"></app-select-curso-home>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-info-ciclo-home [idCicloSelected]="idCicloSelected"></app-info-ciclo-home>
     </div>
   </div>
 </div>
-
