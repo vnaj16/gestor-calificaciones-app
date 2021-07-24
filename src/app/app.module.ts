@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelectCicloHomeComponent } from './select-ciclo-home/select-ciclo-home.component';
@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SelectCursoHomeComponent } from './select-curso-home/select-curso-home.component';
 import { InfoCicloHomeComponent } from './info-ciclo-home/info-ciclo-home.component';
+import { FormCreateCycleComponent } from './form-create-cycle/form-create-cycle.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { InfoCicloHomeComponent } from './info-ciclo-home/info-ciclo-home.compon
     PageRegisterGradeComponent,
     PageRegisterCycleComponent,
     SelectCursoHomeComponent,
-    InfoCicloHomeComponent
+    InfoCicloHomeComponent,
+    FormCreateCycleComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { InfoCicloHomeComponent } from './info-ciclo-home/info-ciclo-home.compon
     MatSelectModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Ciclo } from '../models/ciclo.model';
 //import {CicloInfo} from '../models/cicloInfo.model';
 import { CicloService } from '../services/ciclo.service';
-//import {CreateCiclo} from '../models/createCiclo.model';
+
 
 @Component({
   selector: 'app-select-ciclo-home',

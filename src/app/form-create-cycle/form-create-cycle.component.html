@@ -1,0 +1,18 @@
+<h3>Registre un nuevo ciclo o seleccione uno ya registrado</h3>
+<form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit(form.value)">
+    <div class="row">
+        <div class="col-6">
+            <label for="periodo">Periodo:</label>
+            <input type="text" name="periodo" id="periodo" formControlName="periodo">
+        </div>
+        <div class="col-6">
+            <label for="nCursos">Número de Cursos:</label>
+            <input type="number" name="nCursos" id="nCursos" formControlName="numeroCursos">
+        </div>
+    </div>  
+    <div class="row">
+        <button type="submit" [disabled]="!form.valid">Registrar Ciclo</button>
+    </div>  
+</form>
