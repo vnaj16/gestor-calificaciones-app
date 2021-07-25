@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Curso } from '../models/curso.model';
+import { CursoInfo } from '../models/cursoInfo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,6 @@ export class CursoService {
     return this.http.get<Curso[]>(this.baseUrl + 'cursos');
   }
   getById(idCurso: number){
-    return this.http.get<Curso>(this.baseUrl + 'cursos/'+idCurso);
+    return this.http.get<CursoInfo>(this.baseUrl + 'cursos/'+idCurso);
   }
 }

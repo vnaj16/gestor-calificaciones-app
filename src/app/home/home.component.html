@@ -4,12 +4,20 @@
       <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
     </div>
     <div class="col-6">
-      <app-select-curso-home [idCicloSelected]="idCicloSelected"></app-select-curso-home>
+      <app-select-curso-home [idCicloSelected]="idCicloSelected" (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-home>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col">
       <app-info-ciclo-home [idCicloSelected]="idCicloSelected"></app-info-ciclo-home>
+    </div>
+    <div class="col">
+      <app-info-curso-home [idCursoSelected]="idCursoSelected"></app-info-curso-home>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-table-evaluaciones-home></app-table-evaluaciones-home>
     </div>
   </div>
 </div>

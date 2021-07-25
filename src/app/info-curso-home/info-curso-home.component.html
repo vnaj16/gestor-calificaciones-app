@@ -1,0 +1,12 @@
+<p *ngIf="!idCursoSelected else elseBlock">Seleccione un curso para ver su información</p>
+<ng-template #elseBlock>
+    <div class="ml-3">
+        <p>Curso: {{curso.nombre}}</p>
+        <p>Creditos: {{curso.creditos}}</p>
+        <p>Promedio del curso al 75%</p>
+        <p>Se deberia tener 20</p>
+        <p>Promedio ponderado del curso: {{curso.promedioTemporal}}</p>
+        <p>Promedio ponderado final del curso: {{curso.promedioFinal}}</p>
+        <p>Puntos perdidos: {{20-curso.promedioTemporal}}</p>
+    </div> 
+</ng-template>

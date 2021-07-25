@@ -30,25 +30,9 @@ export class SelectCicloHomeComponent implements OnInit {
         this.ciclos = ciclos
         this.indexLastCiclo = this.ciclos.length - 1
       });
-
-
-    // this.cicloService.getById(1)
-    //   .subscribe(ciclo=>{this.ciclo = ciclo});
-    // this.cicloService.create(this.cicloCreate).subscribe(res=>{
-    //   this.responsePost = res
-    // })
-    // console.log(this.responsePost);
   }
 
   cicloSelectionChangeMethod(selection: any): void {
     this.cicloSelectionChange.emit(selection);
   }
-
-  // PostCiclo(): void{
-  //   console.log('Posting...');
-  //   this.cicloService.create(this.cicloCreate).subscribe(res=>{
-  //     this.responsePost = res
-  //   })
-  //   console.log(this.responsePost);
-  // }
 }

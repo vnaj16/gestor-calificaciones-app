@@ -14,6 +14,7 @@ export class InfoCicloHomeComponent implements OnInit, OnChanges {
     periodo: '2021-02',
     promedioFinal: 18.6,
     promedioBeca: 17.3
+    
   }
 
   constructor(public cicloService: CicloService) { }

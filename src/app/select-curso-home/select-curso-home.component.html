@@ -1,20 +1,16 @@
 <h1 class="text-primary">Seleccionar Curso</h1>
-<mat-form-field appearance="fill">
-    <mat-label>Curso</mat-label>
-    <mat-select (openedChange)="cursoSelectionOpenMethod($event)" [value]="0">
-      <ng-template [ngIf]="idCicloSelected" [ngIfElse]="cursoElseBlock">
-        <mat-option [value]="0">
-          Seleccione
-        </mat-option>
-        <mat-option *ngFor="let cursoItem of cursos" [value]="cursoItem.idCurso">
-          {{cursoItem.codigo}} {{cursoItem.nombre}} 
-        </mat-option>
-      </ng-template>
-      <ng-template #cursoElseBlock>
-        <mat-option [value]="0">
-          Seleccione un ciclo
-        </mat-option>
-      </ng-template>
-    </mat-select>
-</mat-form-field>
-
+<mat-selection-list (selectionChange)="cursoSelectionChangeMethod($event)" [multiple]="false">
+  <ng-template [ngIf]="idCicloSelected" [ngIfElse]="cursoElseBlock">
+    <mat-list-option [value]="0">
+      Seleccione
+    </mat-list-option>
+    <mat-list-option *ngFor="let cursoItem of cursos" [value]="cursoItem.idCurso">
+      {{cursoItem.codigo}} {{cursoItem.nombre}}
+    </mat-list-option>
+  </ng-template>
+  <ng-template #cursoElseBlock>
+    <mat-list-option [value]="0">
+      Seleccione un ciclo
+    </mat-list-option>
+  </ng-template>
+</mat-selection-list>

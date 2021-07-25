@@ -16,6 +16,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SelectCursoHomeComponent } from './select-curso-home/select-curso-home.component';
 import { InfoCicloHomeComponent } from './info-ciclo-home/info-ciclo-home.component';
 import { FormCreateCycleComponent } from './form-create-cycle/form-create-cycle.component';
+import { InfoCursoHomeComponent } from './info-curso-home/info-curso-home.component';
+import {MatListModule} from '@angular/material/list';
+import { TableEvaluacionesHomeComponent } from './table-evaluaciones-home/table-evaluaciones-home.component';
+import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -27,7 +33,9 @@ import { FormCreateCycleComponent } from './form-create-cycle/form-create-cycle.
     PageRegisterCycleComponent,
     SelectCursoHomeComponent,
     InfoCicloHomeComponent,
-    FormCreateCycleComponent
+    FormCreateCycleComponent,
+    InfoCursoHomeComponent,
+    TableEvaluacionesHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,10 @@ import { FormCreateCycleComponent } from './form-create-cycle/form-create-cycle.
     BrowserAnimationsModule,
     MatSidenavModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule,
+    MatTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

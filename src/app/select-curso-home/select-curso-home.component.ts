@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { Curso } from '../models/curso.model';
 import { CursoService } from '../services/curso.service';
 import { CicloService } from '../services/ciclo.service';
+import { MatSelectionListChange } from '@angular/material/list';
 
 @Component({
   selector: 'app-select-curso-home',
@@ -10,6 +11,7 @@ import { CicloService } from '../services/ciclo.service';
 })
 export class SelectCursoHomeComponent implements OnInit {
   @Input() idCicloSelected: any;
+  @Output() cursoSelectionChange = new EventEmitter();
 
   cursos: Curso[] = [];
 
@@ -19,12 +21,15 @@ export class SelectCursoHomeComponent implements OnInit {
     console.log("ngOnInit")
   }
 
-  cursoSelectionOpenMethod(opened: any): void{
-    console.log("Select curso abierto", opened)
-    if(opened){
-      this.cicloService.getCursosByCiclo(this.idCicloSelected)
-      .subscribe(cursos=>this.cursos = cursos);
-    }
+  cursoSelectionChangeMethod(event: MatSelectionListChange): void{
+    this.cursoSelectionChange.emit(event.option.value)
+    console.log("List view: ", event.option.value)
+  }
+
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    this.cicloService.getCursosByCiclo(this.idCicloSelected)
+    .subscribe(cursos=>this.cursos = cursos);
   }
 
 }

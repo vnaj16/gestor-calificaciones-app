@@ -1,5 +1,5 @@
 
-<p *ngIf="!idCicloSelected else elseBlock">info-ciclo-home works!</p>
+<p *ngIf="!idCicloSelected else elseBlock">Seleccione un ciclo para ver su información</p>
 <ng-template #elseBlock>
     <div class="ml-3">
         <p>Promedio ponderado ciclo actual({{ciclo.periodo}}): {{ciclo.promedioFinal | number: '1.0-2'}}</p>
