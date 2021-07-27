@@ -13,8 +13,8 @@ export class InfoCicloHomeComponent implements OnInit, OnChanges {
     idCiclo: 0,
     periodo: '2021-02',
     promedioFinal: 18.6,
-    promedioBeca: 17.3
-    
+    promedioBeca: 17.3,
+    nCursos: 0   
   }
 
   constructor(public cicloService: CicloService) { }

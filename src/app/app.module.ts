@@ -21,6 +21,7 @@ import {MatListModule} from '@angular/material/list';
 import { TableEvaluacionesHomeComponent } from './table-evaluaciones-home/table-evaluaciones-home.component';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { FormCreateCourseComponent } from './form-create-course/form-create-course.component';
 
 
 
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     InfoCicloHomeComponent,
     FormCreateCycleComponent,
     InfoCursoHomeComponent,
-    TableEvaluacionesHomeComponent
+    TableEvaluacionesHomeComponent,
+    FormCreateCourseComponent
   ],
   imports: [
     BrowserModule,

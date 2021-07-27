@@ -3,4 +3,5 @@ export interface CicloInfo {
     periodo: string
     promedioFinal: number
     promedioBeca: number
+    nCursos: number
 }

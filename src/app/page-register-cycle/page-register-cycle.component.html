@@ -1,8 +1,16 @@
 <div class="container">
-    <div class="row">
+    <div class="row mb-3">
         CREATE CICLO
-        <app-form-create-cycle></app-form-create-cycle>
+        <div class="col-8">
+            <app-form-create-cycle></app-form-create-cycle>
+        </div>
+        <div class="col-4">
+            <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
+        </div>
     </div>
-    <div class="row">CREATE CURSOS</div>
+    <div class="row mb-3">
+        CREATE CURSOS
+        <app-form-create-course [idCicloSelected]="idCicloSelected" ></app-form-create-course>
+    </div>
     <div class="row">CREATE EVALUACIONES</div>
 </div>
