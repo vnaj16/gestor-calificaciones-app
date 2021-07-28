@@ -22,6 +22,7 @@ import { TableEvaluacionesHomeComponent } from './table-evaluaciones-home/table-
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { FormCreateCourseComponent } from './form-create-course/form-create-course.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -51,7 +52,8 @@ import { FormCreateCourseComponent } from './form-create-course/form-create-cour
     ReactiveFormsModule,
     MatListModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

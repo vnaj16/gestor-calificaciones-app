@@ -27,9 +27,9 @@ export class FormCreateCourseComponent implements OnInit {
     creditos:0,
     nCampos:0,
     vez:0
-  }
+  };
 
-  constructor(public cicloService: CicloService) { 
+  constructor(public cicloService: CicloService, public cursoService: CursoService) { 
     this.form = new FormGroup({});
   }
 
@@ -59,6 +59,19 @@ export class FormCreateCourseComponent implements OnInit {
     }
 
     console.log('Curso a registrar:',this.cursoCreate);
+
+    this.cursoService.create(this.cursoCreate)
+    .subscribe(res=>{
+      console.log(res);
+    })
+
+    // this.form = new FormGroup({
+    //   codigo: new FormControl(''),
+    //   nombre: new FormControl(''),
+    //   creditos: new FormControl(''),
+    //   nCampos: new FormControl(''),
+    //   vez: new FormControl('')
+    // });
     //TODO: Faltaria llamar al post de curso
   }
 
