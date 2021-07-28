@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Evaluacion } from '../models/evaluacion.model';
 import { EvaluacionInfo } from '../models/evaluacionInfo.model';
+import { CreateEvaluacion } from '../models/createEvaluacion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,12 @@ import { EvaluacionInfo } from '../models/evaluacionInfo.model';
 export class EvaluacionService {
 
   private baseUrl = 'https://localhost:44345/api/';
+
+  httpHeader = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  } 
 
   constructor(private http: HttpClient) { }
 
@@ -21,4 +28,9 @@ export class EvaluacionService {
   getByCurso(idCurso: number){
     return this.http.get<EvaluacionInfo[]>(this.baseUrl + 'evaluaciones/cursos/'+idCurso)
   }
+  createCursoEvaluacion(evaluacion: CreateEvaluacion){
+    return this.http
+      .post<CreateEvaluacion>(this.baseUrl + 'evaluaciones/cursos/'+evaluacion.idCurso+'/', JSON.stringify(evaluacion), this.httpHeader)
+  }
+
 }

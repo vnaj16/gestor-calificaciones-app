@@ -1,0 +1,27 @@
+<h1>Form create Eva</h1>
+<mat-form-field appearance="fill">
+    <mat-label>Evaluacion</mat-label>
+    <mat-select (selectionChange)="evaluacionSelectionChangeMethod($event)" [value]="0">
+        <mat-option [value]="0">
+            Seleccione
+        </mat-option>
+        <mat-option *ngFor="let evaluacion of evaluaciones" [value]="evaluacion.idEvaluacion">
+            {{evaluacion.descripcion}} - {{evaluacion.tipo}}{{evaluacion.numero}} 
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<form
+    [formGroup]="form"
+    (ngSubmit)="registerEvaluacion(form.value)">
+    <div class="row">
+        <div class="col-5">
+            <label for="peso">Peso:</label>
+            <input type="number" name="peso" id="peso" formControlName="peso">
+        </div>  
+    </div>  
+    <div class="row">
+        <div class="col-2">
+            <button type="submit" [disabled]="!form.valid">Registrar Evaluación</button>
+        </div> 
+    </div>  
+</form>

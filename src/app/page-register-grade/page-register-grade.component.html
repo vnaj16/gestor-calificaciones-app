@@ -1,1 +1,10 @@
-<p>page-register-grade works!</p>
+<div class="container">
+    <div class="row"> 
+        <div class="col">
+            <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
+            <app-select-curso-register-cycle [idCicloSelected]="idCicloSelected"
+                                (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-register-cycle>
+        </div>  
+    </div>
+</div> <!--TODO: Los Info podria pasarles un flag para indicarles en que mopdo o estilo mostrar la data-->
+

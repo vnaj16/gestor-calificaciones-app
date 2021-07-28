@@ -23,6 +23,9 @@ import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { FormCreateCourseComponent } from './form-create-course/form-create-course.component';
 import {MatInputModule} from '@angular/material/input';
+import { SelectCursoRegisterCycleComponent } from './select-curso-register-cycle/select-curso-register-cycle.component';
+import { FormCreateEvaluationComponent } from './form-create-evaluation/form-create-evaluation.component';
+import { TableEvaluacionesRegisterCycleComponent } from './table-evaluaciones-register-cycle/table-evaluaciones-register-cycle.component';
 
 
 
@@ -38,7 +41,10 @@ import {MatInputModule} from '@angular/material/input';
     FormCreateCycleComponent,
     InfoCursoHomeComponent,
     TableEvaluacionesHomeComponent,
-    FormCreateCourseComponent
+    FormCreateCourseComponent,
+    SelectCursoRegisterCycleComponent,
+    FormCreateEvaluationComponent,
+    TableEvaluacionesRegisterCycleComponent
   ],
   imports: [
     BrowserModule,

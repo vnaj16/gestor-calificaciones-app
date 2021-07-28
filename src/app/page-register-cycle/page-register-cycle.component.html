@@ -1,16 +1,37 @@
 <div class="container">
     <div class="row mb-3">
-        CREATE CICLO
-        <div class="col-8">
+        <div class="col-9">
             <app-form-create-cycle></app-form-create-cycle>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
         </div>
     </div>
+    <hr />
     <div class="row mb-3">
-        CREATE CURSOS
-        <app-form-create-course [idCicloSelected]="idCicloSelected" ></app-form-create-course>
+        <div class="col">
+            <app-form-create-course [idCicloSelected]="idCicloSelected"></app-form-create-course>
+        </div>
     </div>
-    <div class="row">CREATE EVALUACIONES</div>
+    <hr />
+    <div class="row">
+        <div class="col">   
+            <div class="row mb-3">
+                <div class="col">
+                    <app-select-curso-register-cycle [idCicloSelected]="idCicloSelected"
+                    (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-register-cycle>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <app-form-create-evaluation [idCursoSelected]="idCursoSelected"
+                        (evaluationCreated)="tableEvaluaciones.updateTable()"></app-form-create-evaluation>
+                </div>
+                <div class="col">
+                    <app-table-evaluaciones-register-cycle #tableEvaluaciones [idCursoSelected]="idCursoSelected">
+                    </app-table-evaluaciones-register-cycle>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
