@@ -19,6 +19,7 @@ export class PageRegisterGradeComponent implements OnInit {
   }
 
   cursoSelectionChangeMethod(event: any): void{
-
+    this.idCursoSelected = event
+    console.log('Here', event)
   }
 }

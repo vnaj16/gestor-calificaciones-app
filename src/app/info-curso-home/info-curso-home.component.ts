@@ -9,6 +9,7 @@ import { CursoInfo } from '../models/cursoInfo.model';
 })
 export class InfoCursoHomeComponent implements OnInit {
   @Input() idCursoSelected: any
+  @Input() mode: any
   curso: CursoInfo = {
     idCiclo: 0,
     idCurso: 0,

@@ -6,5 +6,11 @@
                                 (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-register-cycle>
         </div>  
     </div>
+    <div class="row">
+        <div class="col">
+            <app-info-ciclo-home [idCicloSelected]="idCicloSelected" [mode]="1"></app-info-ciclo-home>
+            <app-info-curso-home [idCursoSelected]="idCursoSelected" [mode]="'hor'"></app-info-curso-home>
+        </div>
+    </div>
 </div> <!--TODO: Los Info podria pasarles un flag para indicarles en que mopdo o estilo mostrar la data-->
 

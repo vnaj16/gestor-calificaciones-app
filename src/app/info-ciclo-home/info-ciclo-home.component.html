@@ -1,8 +1,11 @@
 
 <p *ngIf="!idCicloSelected else elseBlock">Seleccione un ciclo para ver su información</p>
 <ng-template #elseBlock>
-    <div class="ml-3">
-        <p>Promedio ponderado ciclo actual({{ciclo.periodo}}): {{ciclo.promedioFinal | number: '1.0-2'}}</p>
+    <div class="ml-3" *ngIf="mode==1">
+        <p>Promedio ponderado ciclo actual ({{ciclo.periodo}}): {{ciclo.promedioFinal | number: '1.0-2'}}</p>
+    </div> 
+    <div class="ml-3" *ngIf="mode!==1">
+        <p>Promedio ponderado ciclo actual ({{ciclo.periodo}}): {{ciclo.promedioFinal | number: '1.0-2'}}</p>
         <p>Promedio del ciclo {{ciclo.periodo}} para Beca: {{ciclo.promedioBeca}}</p>
         <p *ngIf="becaGreaterThanpromedioFinal()">Puntos restantes para la beca: {{ciclo.promedioBeca - ciclo.promedioFinal}}</p>
         <p>Promedio ponderado ciclo anterior (2020-02): 17.56</p>

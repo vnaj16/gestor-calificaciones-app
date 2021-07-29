@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import { SelectCursoRegisterCycleComponent } from './select-curso-register-cycle/select-curso-register-cycle.component';
 import { FormCreateEvaluationComponent } from './form-create-evaluation/form-create-evaluation.component';
 import { TableEvaluacionesRegisterCycleComponent } from './table-evaluaciones-register-cycle/table-evaluaciones-register-cycle.component';
+import { FormUpdatePromedioBecaComponent } from './form-update-promedio-beca/form-update-promedio-beca.component';
 
 
 
@@ -44,7 +45,8 @@ import { TableEvaluacionesRegisterCycleComponent } from './table-evaluaciones-re
     FormCreateCourseComponent,
     SelectCursoRegisterCycleComponent,
     FormCreateEvaluationComponent,
-    TableEvaluacionesRegisterCycleComponent
+    TableEvaluacionesRegisterCycleComponent,
+    FormUpdatePromedioBecaComponent
   ],
   imports: [
     BrowserModule,

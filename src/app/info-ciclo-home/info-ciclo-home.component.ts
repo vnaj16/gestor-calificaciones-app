@@ -9,6 +9,7 @@ import { CicloInfo } from '../models/cicloInfo.model';
 })
 export class InfoCicloHomeComponent implements OnInit, OnChanges {
   @Input() idCicloSelected: any
+  @Input() mode: any
   ciclo: CicloInfo = {
     idCiclo: 0,
     periodo: '2021-02',
