@@ -37,7 +37,6 @@ export class FormUpdatePromedioBecaComponent implements OnInit {
           promedioBeca: new FormControl(res.promedioBeca)
         });
       })
-
   }
 
   updatePromedioBeca(ciclo: any) {

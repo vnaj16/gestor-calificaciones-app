@@ -32,5 +32,8 @@ export class EvaluacionService {
     return this.http
       .post<CreateEvaluacion>(this.baseUrl + 'evaluaciones/cursos/'+evaluacion.idCurso+'/', JSON.stringify(evaluacion), this.httpHeader)
   }
-
+  updateGrade(idCurso: number, idCursoEvaluacion: number, evaluacion: EvaluacionInfo){
+    return this.http
+      .put<EvaluacionInfo>(this.baseUrl + 'evaluaciones/cursos/'+idCurso+'/evaluacion/'+idCursoEvaluacion, JSON.stringify(evaluacion), this.httpHeader)
+  }
 }

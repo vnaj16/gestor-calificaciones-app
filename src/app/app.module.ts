@@ -27,6 +27,7 @@ import { SelectCursoRegisterCycleComponent } from './select-curso-register-cycle
 import { FormCreateEvaluationComponent } from './form-create-evaluation/form-create-evaluation.component';
 import { TableEvaluacionesRegisterCycleComponent } from './table-evaluaciones-register-cycle/table-evaluaciones-register-cycle.component';
 import { FormUpdatePromedioBecaComponent } from './form-update-promedio-beca/form-update-promedio-beca.component';
+import { FormUpdateGradeComponent } from './form-update-grade/form-update-grade.component';
 
 
 
@@ -46,7 +47,8 @@ import { FormUpdatePromedioBecaComponent } from './form-update-promedio-beca/for
     SelectCursoRegisterCycleComponent,
     FormCreateEvaluationComponent,
     TableEvaluacionesRegisterCycleComponent,
-    FormUpdatePromedioBecaComponent
+    FormUpdatePromedioBecaComponent,
+    FormUpdateGradeComponent
   ],
   imports: [
     BrowserModule,

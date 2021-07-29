@@ -1,0 +1,28 @@
+<p>form-update-grade works!</p>
+<form
+    [formGroup]="form"
+    (ngSubmit)="updateGrade(form.value)">
+    <div class="row">
+
+        <div class="col-7">
+            <label for="idCursoEvaluacion">Seleccionar la evaluación:</label>
+            <mat-form-field appearance="fill" >
+                <mat-select (selectionChange)="evaluacionSelectionChangeMethod($event)" formControlName="idCursoEvaluacion">
+                    <mat-option [value]="0">
+                        Seleccione
+                    </mat-option>
+                    <mat-option *ngFor="let evaluacion of evaluaciones" [value]="evaluacion.idCursoEvaluacion">
+                        {{evaluacion.descripcion}} - {{evaluacion.tipo}}{{evaluacion.numero}} 
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <label for="nota">Nota:</label>
+            <input type="number" name="nota" id="nota" formControlName="nota">
+        </div> 
+        <div class="col-2">
+            <button type="submit" [disabled]="!form.valid">Registrar Nota</button>
+        </div> 
+    </div>  
+</form>
