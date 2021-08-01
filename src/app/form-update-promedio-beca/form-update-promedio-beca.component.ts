@@ -17,7 +17,9 @@ export class FormUpdatePromedioBecaComponent implements OnInit {
     periodo: '',
     nCursos: 0,
     promedioFinal: 0,
-    promedioBeca:0
+    promedioBeca:0,
+    promedioFinalCicloAnterior: 0,
+    periodoAnterior: ''
   }
 
   constructor(public cicloService: CicloService) {

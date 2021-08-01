@@ -28,7 +28,8 @@ import { FormCreateEvaluationComponent } from './form-create-evaluation/form-cre
 import { TableEvaluacionesRegisterCycleComponent } from './table-evaluaciones-register-cycle/table-evaluaciones-register-cycle.component';
 import { FormUpdatePromedioBecaComponent } from './form-update-promedio-beca/form-update-promedio-beca.component';
 import { FormUpdateGradeComponent } from './form-update-grade/form-update-grade.component';
-
+import { TableEvaluacionesRegisterGradeComponent } from './table-evaluaciones-register-grade/table-evaluaciones-register-grade.component';
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { FormUpdateGradeComponent } from './form-update-grade/form-update-grade.
     FormCreateEvaluationComponent,
     TableEvaluacionesRegisterCycleComponent,
     FormUpdatePromedioBecaComponent,
-    FormUpdateGradeComponent
+    FormUpdateGradeComponent,
+    TableEvaluacionesRegisterGradeComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { FormUpdateGradeComponent } from './form-update-grade/form-update-grade.
     MatListModule,
     MatTableModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

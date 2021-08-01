@@ -7,4 +7,5 @@ export interface EvaluacionInfo {
     descripcion: string
     peso: number
     nota: number
+    rellenado: boolean
 }

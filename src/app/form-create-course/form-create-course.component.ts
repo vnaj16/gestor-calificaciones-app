@@ -18,7 +18,9 @@ export class FormCreateCourseComponent implements OnInit {
     periodo: '',
     promedioBeca: 0,
     promedioFinal: 0,
-    nCursos: 0
+    nCursos: 0,
+    promedioFinalCicloAnterior:0,
+    periodoAnterior: ''
   }
   cursoCreate: CreateCurso={
     idCiclo: 0,

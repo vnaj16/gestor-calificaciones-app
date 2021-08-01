@@ -1,4 +1,4 @@
-<h1>Form create Eva</h1>
+<span>Seleccione tipo de evaluación</span>
 <mat-form-field appearance="fill">
     <mat-label>Evaluacion</mat-label>
     <mat-select (selectionChange)="evaluacionSelectionChangeMethod($event)" [value]="0">
@@ -14,13 +14,15 @@
     [formGroup]="form"
     (ngSubmit)="registerEvaluacion(form.value)">
     <div class="row">
-        <div class="col-5">
+        <div class="col-2">
             <label for="peso">Peso:</label>
+        </div>
+        <div class="col-2">
             <input type="number" name="peso" id="peso" formControlName="peso">
         </div>  
     </div>  
     <div class="row">
-        <div class="col-2">
+        <div class="col">
             <button type="submit" [disabled]="!form.valid">Registrar Evaluación</button>
         </div> 
     </div>  

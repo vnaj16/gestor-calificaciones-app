@@ -1,10 +1,11 @@
-<p>form-update-promedio-beca works!</p>
 <form
     [formGroup]="form"
     (ngSubmit)="updatePromedioBeca(form.value)">
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <label for="promedioBeca">Promedio para Beca:</label>
+        </div>
+        <div class="col-3">
             <input type="number" name="promedioBeca" id="promedioBeca" formControlName="promedioBeca">
         </div>  
         <div class="col-2">

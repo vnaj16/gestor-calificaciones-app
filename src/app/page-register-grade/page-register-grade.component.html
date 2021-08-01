@@ -1,20 +1,29 @@
 <div class="container">
-    <div class="row"> 
+    <div class="row mb-3"> 
         <div class="col">
             <app-select-ciclo-home (cicloSelectionChange)="cicloSelectionChangeMethod($event)"> </app-select-ciclo-home>
-            <app-select-curso-register-cycle [idCicloSelected]="idCicloSelected"
-                                (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-register-cycle>
         </div>  
-    </div>
-    <div class="row">
         <div class="col">
             <app-info-ciclo-home [idCicloSelected]="idCicloSelected" [mode]="1"></app-info-ciclo-home>
+        </div>
+        <div class="col">
+            <app-select-curso-register-cycle [idCicloSelected]="idCicloSelected"
+            (cursoSelectionChange)="cursoSelectionChangeMethod($event)"></app-select-curso-register-cycle>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
             <app-info-curso-home [idCursoSelected]="idCursoSelected" [mode]="'hor'"></app-info-curso-home>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <app-form-update-grade [idCursoSelected]="idCursoSelected" ></app-form-update-grade>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-table-evaluaciones-register-grade></app-table-evaluaciones-register-grade>
         </div>
     </div>
 </div> <!--TODO: Los Info podria pasarles un flag para indicarles en que mopdo o estilo mostrar la data-->

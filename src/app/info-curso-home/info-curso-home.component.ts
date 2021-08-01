@@ -16,20 +16,31 @@ export class InfoCursoHomeComponent implements OnInit {
     codigo: '',
     nombre: '',
     creditos: 0,
-    nCampos:0,
-    promedioFinal:0,
-    promedioTemporal:0,
-    vez:0
+    nCampos: 0,
+    promedioFinal: 0,
+    promedioTemporal: 0,
+    vez: 0,
+    porcentajeCumplido: 0
   }
+  maximaNotaPosible: number = 0
 
   constructor(public cursoService: CursoService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.cursoService.getById(this.idCursoSelected)
-      .subscribe(curso=>this.curso = curso)
+      .subscribe(curso => {
+        this.curso = curso
+        this.maximaNotaPosible = (this.curso.porcentajeCumplido/100)*20
+      })
   }
 
   ngOnInit(): void {
   }
 
+  updateGradeTemp(promedioTemp: number, porcentajeCumplido: number): void{
+    this.curso.promedioTemporal = promedioTemp,
+    this.curso.promedioFinal = promedioTemp, //TODO: Falta redondear
+    this.curso.porcentajeCumplido = porcentajeCumplido,
+    this.maximaNotaPosible = (this.curso.porcentajeCumplido/100)*20
+  }
 }

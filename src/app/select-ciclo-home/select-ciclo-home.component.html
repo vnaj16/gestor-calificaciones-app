@@ -1,8 +1,17 @@
-<h1 class="text-primary">Seleccionar Ciclo</h1>
-<mat-form-field appearance="fill">
-    <mat-select (selectionChange)="cicloSelectionChangeMethod($event)" [value]="indexLastCiclo">
-      <mat-option *ngFor="let cicloItem of ciclos" [value]="cicloItem.idCiclo">
-        {{cicloItem.periodo}}
-      </mat-option>
-    </mat-select>
-</mat-form-field>
+<div class="container">
+  <div class="row">
+    <div class="col">
+          <span>Seleccionar Ciclo</span>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="fill">
+          <mat-select (selectionChange)="cicloSelectionChangeMethod($event)" [value]="indexLastCiclo">
+            <mat-option *ngFor="let cicloItem of ciclos" [value]="cicloItem.idCiclo">
+              {{cicloItem.periodo}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+

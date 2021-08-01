@@ -1,9 +1,9 @@
-<h1 class="text-primary">Seleccionar Curso</h1>
+<span>Seleccionar Curso</span>
 <mat-selection-list (selectionChange)="cursoSelectionChangeMethod($event)" [multiple]="false">
   <ng-template [ngIf]="idCicloSelected" [ngIfElse]="cursoElseBlock">
-    <mat-list-option [value]="0">
+    <!-- <mat-list-option [value]="0">
       Seleccione
-    </mat-list-option>
+    </mat-list-option> -->
     <mat-list-option *ngFor="let cursoItem of cursos" [value]="cursoItem.idCurso">
       {{cursoItem.codigo}} {{cursoItem.nombre}}
     </mat-list-option>

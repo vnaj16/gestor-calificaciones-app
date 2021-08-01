@@ -3,32 +3,37 @@
     <div class="ml-3" *ngIf="mode=='ver'">
         <p>Curso: {{curso.nombre}}</p>
         <p>Creditos: {{curso.creditos}}</p>
-        <p>Promedio del curso al 75%</p>
-        <p>Se deberia tener 20</p>
-        <p>Promedio ponderado del curso: {{curso.promedioTemporal}}</p>
-        <p>Promedio ponderado final del curso: {{curso.promedioFinal}}</p>
-        <p>Puntos perdidos: {{20-curso.promedioTemporal}}</p>
-    </div> 
+        <p>Promedio del curso al {{curso.porcentajeCumplido}}%</p>
+        <p>Se deberia tener {{maximaNotaPosible}}</p>
+        <p>Promedio ponderado del curso: {{curso.promedioTemporal | number: '1.0-2'}}</p>
+        <p>Promedio ponderado final del curso: {{curso.promedioFinal | number: '1.0-2'}}</p>
+        <p>Puntos perdidos: {{maximaNotaPosible-curso.promedioTemporal | number: '1.0-2'}}</p>
+    </div>
     <div class="ml-3" *ngIf="mode=='hor'">
         <div class="row">
             <div class="col">
-                <span>Curso: {{curso.nombre}}</span>
+                <b>Curso: {{curso.nombre}}</b>
             </div>
             <div class="col">
                 <span>Creditos: {{curso.creditos}}</span>
             </div>
             <div class="col">
-                <span>Promedio del curso al 75%</span>
+                <span>Promedio del curso al {{curso.porcentajeCumplido}}%</span>
             </div>
             <div class="col">
-                <span>Se deberia tener 20</span>
+                <span>Se deberia tener {{maximaNotaPosible}}</span>
             </div>
         </div>
         <div class="row">
-            <span>Promedio ponderado del curso: {{curso.promedioTemporal}}</span>
-            <span>Promedio ponderado final del curso: {{curso.promedioFinal}}</span>
-            <span>Puntos perdidos: {{20-curso.promedioTemporal}}</span>
+            <div class="col">
+                <span>Promedio ponderado del curso: {{curso.promedioTemporal | number: '1.0-2'}}</span>
+            </div>
+            <div class="col">
+                <span>Promedio ponderado final del curso: <b>{{curso.promedioFinal | number: '1.0-2'}}</b></span>
+            </div>
+            <div class="col">
+                <span>Puntos perdidos: {{maximaNotaPosible-curso.promedioTemporal | number: '1.0-2'}}</span>
+            </div>
         </div>
-
-    </div> 
+    </div>
 </ng-template>

@@ -6,9 +6,9 @@
     </div> 
     <div class="ml-3" *ngIf="mode!==1">
         <p>Promedio ponderado ciclo actual ({{ciclo.periodo}}): {{ciclo.promedioFinal | number: '1.0-2'}}</p>
-        <p>Promedio del ciclo {{ciclo.periodo}} para Beca: {{ciclo.promedioBeca}}</p>
-        <p *ngIf="becaGreaterThanpromedioFinal()">Puntos restantes para la beca: {{ciclo.promedioBeca - ciclo.promedioFinal}}</p>
-        <p>Promedio ponderado ciclo anterior (2020-02): 17.56</p>
-        <p>Promedio acumulado de la carrera: 16.85</p>
+        <p>Promedio del ciclo {{ciclo.periodo}} para Beca: <span *ngIf="!ciclo.promedioBeca">aún no registrado</span>{{ciclo.promedioBeca | number: '1.0-2'}}</p>
+        <p *ngIf="becaGreaterThanpromedioFinal()">Puntos restantes para la beca: {{ciclo.promedioBeca - ciclo.promedioFinal | number: '1.0-2'}}</p>
+        <p>Promedio ponderado ciclo anterior ({{ciclo.periodoAnterior}}): {{ciclo.promedioFinalCicloAnterior | number: '1.0-2'}}</p>
+        <p>Promedio acumulado de la carrera: {{promedioAcumulado | number: '1.0-2'}}</p>
     </div> 
 </ng-template>

@@ -20,7 +20,8 @@ export class FormUpdateGradeComponent implements OnInit {
     nota:0,
     peso:0,
     tipo:'',
-    numero:0
+    numero:0,
+    rellenado: false
   }
   //cursoEvaluacionSelected: any = {}
 
@@ -63,7 +64,8 @@ export class FormUpdateGradeComponent implements OnInit {
       nota:0,
       peso:0,
       tipo:'',
-      numero:0
+      numero:0,
+      rellenado: false
     }
 
     console.log("Objeto seleccionado: ", this.cursoEvaluacionSelected)

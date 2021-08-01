@@ -7,5 +7,6 @@ export interface CursoInfo {
     nCampos: number
     promedioTemporal: number,
     promedioFinal: number,
-    vez: number
+    vez: number,
+    porcentajeCumplido: number
 }
