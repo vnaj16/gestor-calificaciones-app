@@ -15,7 +15,7 @@ const USER_SCHEMA = {
   styleUrls: ['./table-evaluaciones-register-cycle.component.css']
 })
 export class TableEvaluacionesRegisterCycleComponent implements OnInit {
-  @Input() idCursoSelected: any;
+  @Input() idCursoSelected: any; //TODO: Refactorizar para que en vez de recibir el id, reciba el array de evas
 
   displayedColumns: string[] = ['tipo', 'numero', 'descripcion', 'peso'];
   dataSource: EvaluacionInfo[] = []
