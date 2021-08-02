@@ -16,7 +16,8 @@ export class InfoCicloHomeComponent implements OnInit, OnChanges {
     periodo: '',
     promedioFinal: 0,
     promedioBeca: 0,
-    nCursos: 0 ,
+    nCursos: 0,
+    nCursosRegistrados: 0,
     promedioFinalCicloAnterior: 0,
     periodoAnterior: '' 
   }

@@ -16,6 +16,7 @@ export class FormUpdatePromedioBecaComponent implements OnInit {
     idCiclo:0,
     periodo: '',
     nCursos: 0,
+    nCursosRegistrados:0,
     promedioFinal: 0,
     promedioBeca:0,
     promedioFinalCicloAnterior: 0,

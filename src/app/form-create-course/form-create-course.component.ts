@@ -19,6 +19,7 @@ export class FormCreateCourseComponent implements OnInit {
     promedioBeca: 0,
     promedioFinal: 0,
     nCursos: 0,
+    nCursosRegistrados: 0,
     promedioFinalCicloAnterior:0,
     periodoAnterior: ''
   }
@@ -30,6 +31,7 @@ export class FormCreateCourseComponent implements OnInit {
     nCampos:0,
     vez:0
   };
+  // nCursosRegistrados: number =0
 
   constructor(public cicloService: CicloService, public cursoService: CursoService) { 
     this.form = new FormGroup({});
@@ -50,6 +52,10 @@ export class FormCreateCourseComponent implements OnInit {
     .subscribe(ciclo=>this.ciclo = ciclo)
   }
 
+  isComplete(): Boolean{
+    return this.ciclo.nCursos == this.ciclo.nCursosRegistrados
+  }
+
   onSubmit(curso:any){
     this.cursoCreate={
       idCiclo: this.ciclo.idCiclo,
@@ -66,6 +72,8 @@ export class FormCreateCourseComponent implements OnInit {
     .subscribe(res=>{
       console.log(res);
     })
+
+
 
     // this.form = new FormGroup({
     //   codigo: new FormControl(''),

@@ -1,4 +1,4 @@
-<h3>Registro de cursos para el ciclo {{ciclo.periodo}} (n de {{ciclo.nCursos}} cursos registrados)</h3>
+<h3>Registro de cursos para el ciclo {{ciclo.periodo}} ({{ciclo.nCursosRegistrados}} de {{ciclo.nCursos}} cursos registrados)</h3>
 <form
     [formGroup]="form"
     (ngSubmit)="onSubmit(form.value)">
@@ -38,7 +38,7 @@
             </mat-form-field>
         </div>
         <div class="col-2">
-            <button type="submit" [disabled]="!form.valid">Registrar Curso</button>
+            <button type="submit" [disabled]="!form.valid || isComplete()">Registrar Curso</button>
         </div> 
     </div>  
 </form>

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EvaluacionInfo } from '../models/evaluacionInfo.model';
 import { EvaluacionService } from '../services/evaluacion.service';
+import { TableEvaluacionRegisterGradeEvent } from '../shared/tableEvaluacionRegisterGradeEvent';
 
 @Component({
   selector: 'app-form-update-grade',
@@ -10,6 +11,8 @@ import { EvaluacionService } from '../services/evaluacion.service';
 })
 export class FormUpdateGradeComponent implements OnInit {
   @Input() idCursoSelected: any
+  @Output() evaluationSelectionChanged= new EventEmitter();
+  @Output() gradeUpdated= new EventEmitter();
   evaluaciones: EvaluacionInfo[] = []
   form: FormGroup;
   cursoEvaluacionSelected: EvaluacionInfo = {
@@ -47,12 +50,10 @@ export class FormUpdateGradeComponent implements OnInit {
   }
 
   updateGrade(event: any): void{
-    console.log('Actualizar nota: ', event)
     this.cursoEvaluacionSelected.nota = event.nota
-    console.log('Objeto Actualizar: ', this.cursoEvaluacionSelected)
     this.evaluacionService
       .updateGrade(this.idCursoSelected,this.cursoEvaluacionSelected.idCursoEvaluacion,this.cursoEvaluacionSelected)
-      .subscribe(()=>{})
+      .subscribe(()=>{this.gradeUpdated.emit()})//Por buenas practicas, deberia retornar el id del curso
   }
 
   evaluacionSelectionChangeMethod(event: any): void{
@@ -68,12 +69,15 @@ export class FormUpdateGradeComponent implements OnInit {
       rellenado: false
     }
 
-    console.log("Objeto seleccionado: ", this.cursoEvaluacionSelected)
-
     this.form = new FormGroup({
       idCursoEvaluacion: new FormControl(this.cursoEvaluacionSelected.idCursoEvaluacion),
       nota: new FormControl(this.cursoEvaluacionSelected.nota)
     });
+
+    this.evaluationSelectionChanged.emit(this.cursoEvaluacionSelected.idCursoEvaluacion)
   }
 
+  updateEvaluationSelection($event: TableEvaluacionRegisterGradeEvent): void{
+    this.form.setValue({idCursoEvaluacion: $event.idCursoEvaluacion, nota:$event.nota})
+  }
 }

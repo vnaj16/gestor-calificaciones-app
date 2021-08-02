@@ -13,17 +13,17 @@
     </div>
     <div class="row mb-3">
         <div class="col">
-            <app-info-curso-home [idCursoSelected]="idCursoSelected" [mode]="'hor'"></app-info-curso-home>
+            <app-info-curso-home #InfoCursoHome [idCursoSelected]="idCursoSelected" [mode]="'hor'"></app-info-curso-home>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <app-form-update-grade [idCursoSelected]="idCursoSelected" ></app-form-update-grade>
+            <app-form-update-grade (gradeUpdated)="InfoCursoHome.refresh()" (evaluationSelectionChanged)="TableEvaluation.updateEvaluationSelection($event)" #FormUpdateGrade [idCursoSelected]="idCursoSelected" ></app-form-update-grade>
         </div>
     </div>
     <div class="row" style="margin: auto;">
         <div class="col-12">
-            <app-table-evaluaciones-register-grade [idCursoSelected]="idCursoSelected"></app-table-evaluaciones-register-grade>
+            <app-table-evaluaciones-register-grade #TableEvaluation (evaluationSelectionChanged)="FormUpdateGrade.updateEvaluationSelection($event)" [idCursoSelected]="idCursoSelected"></app-table-evaluaciones-register-grade>
         </div>
     </div>
 </div> <!--TODO: Los Info podria pasarles un flag para indicarles en que mopdo o estilo mostrar la data-->

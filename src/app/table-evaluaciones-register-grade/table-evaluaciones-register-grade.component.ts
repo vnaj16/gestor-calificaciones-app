@@ -1,8 +1,9 @@
 import {SelectionModel} from '@angular/cdk/collections';
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, Output, SimpleChanges, EventEmitter} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { EvaluacionInfo } from '../models/evaluacionInfo.model';
 import { EvaluacionService } from '../services/evaluacion.service';
+import { TableEvaluacionRegisterGradeEvent } from '../shared/tableEvaluacionRegisterGradeEvent';
 
 /**
  * @title Table with selection
@@ -14,7 +15,7 @@ import { EvaluacionService } from '../services/evaluacion.service';
 })
 export class TableEvaluacionesRegisterGradeComponent implements OnInit {
   @Input() idCursoSelected: any;
-
+  @Output() evaluationSelectionChanged = new EventEmitter()
   
   constructor(public evaluacionService: EvaluacionService) {
     
@@ -25,7 +26,7 @@ export class TableEvaluacionesRegisterGradeComponent implements OnInit {
   displayedColumns: string[] = ['select', 'tipo', 'numero', 'descripcion', 'peso', 'nota'];
   dataSource: EvaluacionInfo[] = []
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<string>(true, []);
+  selection = new SelectionModel<EvaluacionInfo>(false, []);
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,14 +34,30 @@ export class TableEvaluacionesRegisterGradeComponent implements OnInit {
       .subscribe(evas=>this.dataSource = evas)
   }
 
-  onClick($event: any): void{
-    $event.stopPropagation()
-    console.log('On click method: ', $event)
+  onChange($event: any, row:EvaluacionInfo): void{ //TODO: HERE IS
+    $event ? this.selection.toggle(row) : null;
+
+    if($event.checked){
+      console.log('On chnage method: ', $event, row)
+      console.log('Selection: ', this.selection);
+      let eventData = new TableEvaluacionRegisterGradeEvent(row.idCursoEvaluacion, row.nota)
+      this.evaluationSelectionChanged.emit(eventData)
+    } 
   }
 
-  onChange($event: any, row:any): void{ //TODO: HERE IS
-    $event ? this.selection.toggle(row) : null;
-    console.log('On chnage method: ', $event, row)
+  updateEvaluationSelection($event: any): void{
+    let objectBtw = {
+      idCursoEvaluacion:0,
+      idEvaluacion:0,
+      idCurso:0,
+      descripcion:'',
+      nota:0,
+      peso:0,
+      tipo:'',
+      numero:0,
+      rellenado: false
+    }
+    this.selection.select(this.dataSource.find(x=>x.idCursoEvaluacion==$event) || objectBtw)
   }
 
   
