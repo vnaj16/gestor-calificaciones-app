@@ -34,9 +34,7 @@ export class FormCreateEvaluationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      peso: new FormControl('')
-    });
+    this.createForm()
 
     this.evaluacionService.getAll()
       .subscribe(evas => {
@@ -52,22 +50,26 @@ export class FormCreateEvaluationComponent implements OnInit {
   }
 
   registerEvaluacion(evaluacion: any) {
-    this.evaluacionCreate = {
-      idCurso: this.idCursoSelected,
-      idEvaluacion: this.idEvaluacionSelected,
-      peso: evaluacion.peso,
-      nota: 0
+    if(this.porcentajeRegistrado+evaluacion.peso<=100){
+      this.evaluacionCreate = {
+        idCurso: this.idCursoSelected,
+        idEvaluacion: this.idEvaluacionSelected,
+        peso: evaluacion.peso,
+        nota: 0
+      }
+      this.evaluacionService.createCursoEvaluacion(this.evaluacionCreate)
+        .subscribe(res => {
+          this.evaluationCreated.emit();
+          console.log('Evaluacion a registrar: ', this.evaluacionCreate)
+          this.nEvaluacionesRegistradas += 1
+          this.porcentajeRegistrado += this.evaluacionCreate.peso
+          this.createForm()
+        })
     }
-    this.evaluacionService.createCursoEvaluacion(this.evaluacionCreate)
-      .subscribe(res => {
-        this.evaluationCreated.emit();
-        console.log('Evaluacion a registrar: ', this.evaluacionCreate)
-        this.nEvaluacionesRegistradas += 1
-        this.porcentajeRegistrado += this.evaluacionCreate.peso
-      })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.porcentajeRegistrado=0
     this.cursoService.getById(this.idCursoSelected)
       .subscribe(curso => {
         this.nEvaluacionesARegistrar = curso.nCampos
@@ -75,7 +77,7 @@ export class FormCreateEvaluationComponent implements OnInit {
           .subscribe(evas => {
             this.nEvaluacionesRegistradas = evas.length
             evas.forEach(element => {
-              this.porcentajeRegistrado +=element.peso
+              this.porcentajeRegistrado += element.peso
             });
           })
         console.log('Curso llegado: ', curso)
@@ -83,6 +85,12 @@ export class FormCreateEvaluationComponent implements OnInit {
   }
 
   isComplete(): Boolean {
-    return this.nEvaluacionesARegistrar == this.nEvaluacionesRegistradas
+    return this.nEvaluacionesARegistrar == this.nEvaluacionesRegistradas || this.porcentajeRegistrado == 100
+  }
+
+  createForm(): void {
+    this.form = new FormGroup({
+      peso: new FormControl('')
+    });
   }
 }

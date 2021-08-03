@@ -38,13 +38,7 @@ export class FormCreateCourseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      codigo: new FormControl(''),
-      nombre: new FormControl(''),
-      creditos: new FormControl(''),
-      nCampos: new FormControl(''),
-      vez: new FormControl('')
-    });
+    this.createForm()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -71,18 +65,19 @@ export class FormCreateCourseComponent implements OnInit {
     this.cursoService.create(this.cursoCreate)
     .subscribe(res=>{
       console.log(res);
+      this.createForm()
+      this.ciclo.nCursosRegistrados+=1
     })
+  }
 
-
-
-    // this.form = new FormGroup({
-    //   codigo: new FormControl(''),
-    //   nombre: new FormControl(''),
-    //   creditos: new FormControl(''),
-    //   nCampos: new FormControl(''),
-    //   vez: new FormControl('')
-    // });
-    //TODO: Faltaria llamar al post de curso
+  createForm(): void{
+    this.form = new FormGroup({
+      codigo: new FormControl(''),
+      nombre: new FormControl(''),
+      creditos: new FormControl(''),
+      nCampos: new FormControl(''),
+      vez: new FormControl('')
+    });
   }
 
 }

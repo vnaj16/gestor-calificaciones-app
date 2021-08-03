@@ -21,14 +21,7 @@ export class FormCreateCycleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      periodo: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.maxLength(7),
-        Validators.minLength(7)
-      ])), //TODO: Crear un metodo que me coloque el periodo actual, jalando la fecha
-      numeroCursos: new FormControl(5, Validators.required)
-    });
+    this.createForm()
   }
 
   onSubmit(ciclo: any) {
@@ -41,6 +34,18 @@ export class FormCreateCycleComponent implements OnInit {
     this.cicloService.create(this.cicloCreate).subscribe(res => {
       this.responsePost = res
       console.log(this.responsePost);
+      this.createForm()
     })
+  }
+
+  createForm(): void{
+    this.form = new FormGroup({
+      periodo: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.maxLength(7),
+        Validators.minLength(7)
+      ])), //TODO: Crear un metodo que me coloque el periodo actual, jalando la fecha
+      numeroCursos: new FormControl(5, Validators.required)
+    });
   }
 }
