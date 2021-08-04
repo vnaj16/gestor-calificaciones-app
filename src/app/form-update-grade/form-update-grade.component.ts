@@ -51,6 +51,7 @@ export class FormUpdateGradeComponent implements OnInit {
 
   updateGrade(event: any): void{
     this.cursoEvaluacionSelected.nota = event.nota
+    this.cursoEvaluacionSelected.idCursoEvaluacion = event.idCursoEvaluacion
     this.evaluacionService
       .updateGrade(this.idCursoSelected,this.cursoEvaluacionSelected.idCursoEvaluacion,this.cursoEvaluacionSelected)
       .subscribe(()=>{this.gradeUpdated.emit()})//Por buenas practicas, deberia retornar el id del curso
@@ -78,6 +79,6 @@ export class FormUpdateGradeComponent implements OnInit {
   }
 
   updateEvaluationSelection($event: TableEvaluacionRegisterGradeEvent): void{
-    this.form.setValue({idCursoEvaluacion: $event.idCursoEvaluacion, nota:$event.nota})
+    this.form.setValue({idCursoEvaluacion: $event.idCursoEvaluacion, nota:$event.nota}) 
   }
 }

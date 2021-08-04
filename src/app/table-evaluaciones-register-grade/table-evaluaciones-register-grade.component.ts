@@ -34,6 +34,11 @@ export class TableEvaluacionesRegisterGradeComponent implements OnInit {
       .subscribe(evas=>this.dataSource = evas)
   }
 
+  refresh(): void{
+    this.evaluacionService.getByCurso(this.idCursoSelected)
+    .subscribe(evas=>this.dataSource = evas)
+  }
+
   onChange($event: any, row:EvaluacionInfo): void{ //TODO: HERE IS
     $event ? this.selection.toggle(row) : null;
 

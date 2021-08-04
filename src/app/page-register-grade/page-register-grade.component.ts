@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoCursoHomeComponent } from '../info-curso-home/info-curso-home.component';
+import { TableEvaluacionesRegisterGradeComponent } from '../table-evaluaciones-register-grade/table-evaluaciones-register-grade.component';
 
 @Component({
   selector: 'app-page-register-grade',
@@ -21,5 +23,10 @@ export class PageRegisterGradeComponent implements OnInit {
   cursoSelectionChangeMethod(event: any): void{
     this.idCursoSelected = event
     console.log('Here', event)
+  }
+
+  myMethod(element: InfoCursoHomeComponent, table: TableEvaluacionesRegisterGradeComponent): void{
+    element.refresh()
+    table.refresh()
   }
 }

@@ -18,7 +18,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <app-form-update-grade (gradeUpdated)="InfoCursoHome.refresh()" (evaluationSelectionChanged)="TableEvaluation.updateEvaluationSelection($event)" #FormUpdateGrade [idCursoSelected]="idCursoSelected" ></app-form-update-grade>
+            <app-form-update-grade (gradeUpdated)="myMethod(InfoCursoHome,TableEvaluation)" (evaluationSelectionChanged)="TableEvaluation.updateEvaluationSelection($event)" #FormUpdateGrade [idCursoSelected]="idCursoSelected" ></app-form-update-grade>
         </div>
     </div>
     <div class="row" style="margin: auto;">

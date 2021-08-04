@@ -34,14 +34,13 @@ export class InfoCursoHomeComponent implements OnInit {
       })
   }
 
-  refresh(): void{
+  public refresh(): void{
     this.cursoService.getById(this.idCursoSelected)
       .subscribe(curso => {
         this.curso = curso
         this.maximaNotaPosible = (this.curso.porcentajeCumplido/100)*20
       })
     console.log('Actualizando Info curso...');
-    
   }
 
   ngOnInit(): void {
