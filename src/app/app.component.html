@@ -1,30 +1,55 @@
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer mode="side">
+    <div class="center-image">
+      <img src="../assets/icons/graduation-hat.png" class="logo">
+    </div>
+    <h2 class="greeting">Hola Arthur Valladares</h2>
+    <h3 class="university">Universidad Peruana de Ciencias Aplicadas</h3>
     <ul class="menu">
       <li>
-        <a routerLink="/" (click)="toggleSidebar()">Inicio</a>
+        <a routerLink="/" class="btn" (click)="toggleSidebar()">
+          <img src="../assets/icons/home.png">
+          <span class="mr-2">Inicio</span>
+        </a>
       </li>
       <li>
-        <a routerLink="/register-grade" (click)="toggleSidebar()">Ingreso de Nota</a>
+        <a routerLink="/register-grade" class="btn" (click)="toggleSidebar()">
+          <img src="../assets/icons/grade.png">
+          <span class="mr-2"> Ingreso de Nota
+          </span>
+        </a>
       </li>
       <li>
-        <a routerLink="/register-cycle" (click)="toggleSidebar()">Registro de Ciclo</a>
+        <a routerLink="/register-cycle" class="btn" (click)="toggleSidebar()">
+          <img src="../assets/icons/books.png">
+          <span class="mr-2"> Registro de Ciclo
+          </span>
+        </a>
       </li>
       <li>
-        <a routerLink="/weighted-calculator" (click)="toggleSidebar()">Calculadora Ponderado</a>
+        <a routerLink="/weighted-calculator" class="btn" (click)="toggleSidebar()">
+          <img src="../assets/icons/calculator.png">
+          <span class="mr-2"> Calculadora Ponderado
+          </span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/" class="btn" (click)="toggleSidebar()">
+          <img src="../assets/icons/config.png">
+          <span class="mr-2">Configuración</span>
+        </a>
       </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="row">
+    <div class="row header">
       <button mat-raised-button (click)="drawer.toggle()">
         <img src="../assets/icons/menu.png" alt="" width="20px" height="20px">
       </button>
+      <h1>Gestor de Calificaciones </h1>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <router-outlet></router-outlet>
     </div>
-    </mat-drawer-content>
+  </mat-drawer-content>
 </mat-drawer-container>
-
-
