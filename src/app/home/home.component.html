@@ -14,7 +14,7 @@
       <app-info-curso-home #InfoCursoHome [idCursoSelected]="idCursoSelected" [mode]="'hor'"></app-info-curso-home>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-3" style="margin: auto;">
     <div class="col-12">
       <app-table-evaluaciones-home (evaluationGradeChanged)="InfoCursoHome.updateGradeTemp($event.promedioTemp, $event.porcentajeCumplido)" [idCursoSelected]="idCursoSelected"></app-table-evaluaciones-home>
     </div>

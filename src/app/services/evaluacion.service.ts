@@ -9,7 +9,7 @@ import { CreateEvaluacion } from '../models/createEvaluacion.model';
 })
 export class EvaluacionService {
 
-  private baseUrl = 'https://localhost:44345/api/';
+  private baseUrl = 'http://localhost:44345/api/';
 
   httpHeader = {
     headers: new HttpHeaders({

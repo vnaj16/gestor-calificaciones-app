@@ -1,15 +1,17 @@
 <h2>Evaluaciones del Curso</h2>
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" style="margin: auto; width:100%;">
   <ng-container [matColumnDef]="col" *ngFor="let col of displayedColumns">
     <th mat-header-cell *matHeaderCellDef>
       <span *ngIf="col !== 'edit'">
-        {{col}}
+        {{col | titlecase}}
       </span>
     </th>
     <td mat-cell *matCellDef="let element">
       <div *ngIf="!element.isEdit">
         <div class="btn-edit" *ngIf="col === 'edit'; spanHeader">
-          <button (click)="element.isEdit = !element.isEdit">Edit</button>
+          <button (click)="element.isEdit = !element.isEdit">
+            <img src="../assets/icons/edit.png">
+          </button>
         </div>
         <span #spanHeader>
           {{element[col]}}
@@ -17,7 +19,9 @@
       </div>
       <div *ngIf="element.isEdit">
         <div class="btn-edit" *ngIf="col === 'edit'; else dataField">
-          <button (click)="processChanges(element)">Done</button>
+          <button (click)="processChanges(element)">
+            <img src="../assets/icons/check.png">
+          </button>
         </div>
         <ng-template #dataField>
           <span *ngIf="col !== 'nota'">

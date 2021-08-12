@@ -10,7 +10,7 @@ import { Curso } from '../models/curso.model';
 })
 export class CicloService {
 
-  private baseUrl = 'https://localhost:44345/api/';
+  private baseUrl = 'http://localhost:44345/api/';
 
   constructor(private http: HttpClient) { }
 

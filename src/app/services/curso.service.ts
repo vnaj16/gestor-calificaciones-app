@@ -9,7 +9,7 @@ import { CreateCurso } from '../models/createCurso.model';
 })
 export class CursoService {
 
-  private baseUrl = 'https://localhost:44345/api/';
+  private baseUrl = 'http://localhost:44345/api/';
 
   constructor(private http: HttpClient) { }
 

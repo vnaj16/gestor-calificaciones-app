@@ -1,0 +1,11 @@
+:host{
+    color: #14274E;
+    width: 100%;
+    font-size:20px
+}
+
+hr{
+    background-color: #14274E;
+    border-width: 3px;
+    width: 100%;
+}

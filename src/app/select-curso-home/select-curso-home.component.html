@@ -5,12 +5,12 @@
       Seleccione
     </mat-list-option> -->
     <mat-list-option *ngFor="let cursoItem of cursos" [value]="cursoItem.idCurso">
-      {{cursoItem.codigo}} {{cursoItem.nombre}}
+      <span>{{cursoItem.codigo}} {{cursoItem.nombre}}</span>
     </mat-list-option>
   </ng-template>
   <ng-template #cursoElseBlock>
     <mat-list-option [value]="0">
-      Seleccione un ciclo
+      <span>Seleccione un ciclo</span>
     </mat-list-option>
   </ng-template>
 </mat-selection-list>
